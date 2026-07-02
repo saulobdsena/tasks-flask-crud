@@ -1,8 +1,8 @@
 class Task:
 
-    def __init__(self, id, tittle, description, completed=False) -> None:
+    def __init__(self, id, title, description, completed=False) -> None:
         self.id = id
-        self.tittle = tittle
+        self.title = title
         self.description = description
         self.completed = completed
 
@@ -10,7 +10,7 @@ class Task:
     def to_dict(self):
         return {
             "id": self.id,
-            "tittle": self.tittle,
+            "title": self.title,
             "description": self.description,
             "completed": self.completed
         }
