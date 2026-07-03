@@ -27,7 +27,7 @@ def get_tasks():
 
     output = {
 
-        "tasks": task_list, 
+        "tasks": task_view, 
         "total_tasks": 0
     }
 
