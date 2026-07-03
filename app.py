@@ -28,7 +28,7 @@ def get_tasks():
     output = {
 
         "tasks": task_view, 
-        "total_tasks": 0
+        "total_tasks": len(task_view)
     }
 
     return jsonify(output)
