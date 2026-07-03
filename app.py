@@ -7,7 +7,7 @@ app = Flask(__name__)
 task_list = []
 task_id_control = 1
 
-
+#Create task
 @app.route('/tasks', methods=['POST'])
 def create_task():
     global task_id_control
@@ -19,7 +19,7 @@ def create_task():
 
     return jsonify({"message": "New task has created"})
 
-
+#Get all tasks
 @app.route('/tasks', methods=['GET'])
 def get_tasks():
     
@@ -32,6 +32,18 @@ def get_tasks():
     }
 
     return jsonify(output)
+
+#Get task by id
+@app.route('/tasks/<int:id>', methods=['GET'])
+def get_task(id):
+
+    #task = None
+    for t in task_list:
+        if t.id == id:
+            return jsonify(t.to_dict())
+    
+    return jsonify ({"message": "Task doesnt exist"}), 404
+
 
 
 
