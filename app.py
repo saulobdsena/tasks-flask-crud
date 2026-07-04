@@ -17,7 +17,7 @@ def create_task():
     task_list.append(new_task)
     print(data)
 
-    return jsonify({"message": "New task has created"})
+    return jsonify({"message": "New task has created", "id": new_task.id})
 
 #Get all tasks
 @app.route('/tasks', methods=['GET'])
