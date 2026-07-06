@@ -1,18 +1,18 @@
 # Tasks Flask CRUD
 
-API REST desenvolvida com **Python** e **Flask** para gerenciamento de tarefas.
+A REST API built with **Python** and **Flask** for task management.
 
-O projeto implementa as principais operações de um CRUD:
+The project implements the main CRUD operations:
 
-* Criar uma tarefa;
-* Listar todas as tarefas;
-* Buscar uma tarefa pelo ID;
-* Atualizar uma tarefa;
-* Excluir uma tarefa.
+* Create a task;
+* List all tasks;
+* Find a task by ID;
+* Update a task;
+* Delete a task.
 
-> Este projeto foi desenvolvido para praticar a criação de APIs REST, rotas HTTP, manipulação de JSON e organização de código com Flask.
+> This project was developed to practice REST API development, HTTP routes, JSON handling, and code organization with Flask.
 
-## Tecnologias utilizadas
+## Technologies
 
 * Python 3
 * Flask
@@ -20,7 +20,7 @@ O projeto implementa as principais operações de um CRUD:
 * Requests
 * Pytest
 
-## Estrutura do projeto
+## Project Structure
 
 ```text
 tasks-flask-crud/
@@ -31,95 +31,95 @@ tasks-flask-crud/
 └── README.md
 ```
 
-### Descrição dos arquivos
+### File Description
 
-* `app.py`: inicialização da aplicação e definição das rotas da API.
-* `models/task.py`: classe responsável por representar uma tarefa.
-* `requirements.txt`: dependências necessárias para executar o projeto.
+* `app.py`: initializes the application and defines the API routes.
+* `models/task.py`: contains the class used to represent a task.
+* `requirements.txt`: contains the dependencies required to run the project.
 
-## Modelo de tarefa
+## Task Model
 
-Cada tarefa possui os seguintes campos:
+Each task contains the following fields:
 
-| Campo         | Tipo    | Descrição                        |
-| ------------- | ------- | -------------------------------- |
-| `id`          | Integer | Identificador único da tarefa    |
-| `title`       | String  | Título da tarefa                 |
-| `description` | String  | Descrição da tarefa              |
-| `completed`   | Boolean | Indica se a tarefa foi concluída |
+| Field         | Type    | Description                                   |
+| ------------- | ------- | --------------------------------------------- |
+| `id`          | Integer | Unique task identifier                        |
+| `title`       | String  | Task title                                    |
+| `description` | String  | Task description                              |
+| `completed`   | Boolean | Indicates whether the task has been completed |
 
-Exemplo:
+Example:
 
 ```json
 {
   "id": 1,
-  "title": "Estudar Flask",
-  "description": "Praticar a criação de APIs REST",
+  "title": "Study Flask",
+  "description": "Practice REST API development",
   "completed": false
 }
 ```
 
-## Como executar o projeto
+## Running the Project
 
-### 1. Clonar o repositório
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/saulobdsena/tasks-flask-crud.git
 ```
 
-Entre na pasta do projeto:
+Navigate to the project directory:
 
 ```bash
 cd tasks-flask-crud
 ```
 
-### 2. Criar um ambiente virtual
+### 2. Create a virtual environment
 
-No Linux ou macOS:
+On Linux or macOS:
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-No Windows:
+On Windows:
 
 ```powershell
 python -m venv .venv
 .venv\Scripts\activate
 ```
 
-### 3. Instalar as dependências
+### 3. Install the dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Executar a aplicação
+### 4. Run the application
 
 ```bash
 python app.py
 ```
 
-A API ficará disponível em:
+The API will be available at:
 
 ```text
 http://127.0.0.1:5000
 ```
 
-## Endpoints da API
+## API Endpoints
 
-| Método   | Endpoint      | Descrição                 |
-| -------- | ------------- | ------------------------- |
-| `POST`   | `/tasks`      | Criar uma nova tarefa     |
-| `GET`    | `/tasks`      | Listar todas as tarefas   |
-| `GET`    | `/tasks/<id>` | Buscar uma tarefa pelo ID |
-| `PUT`    | `/tasks/<id>` | Atualizar uma tarefa      |
-| `DELETE` | `/tasks/<id>` | Excluir uma tarefa        |
+| Method   | Endpoint      | Description              |
+| -------- | ------------- | ------------------------ |
+| `POST`   | `/tasks`      | Creates a new task       |
+| `GET`    | `/tasks`      | Lists all tasks          |
+| `GET`    | `/tasks/<id>` | Finds a task by ID       |
+| `PUT`    | `/tasks/<id>` | Updates an existing task |
+| `DELETE` | `/tasks/<id>` | Deletes a task           |
 
-## Criar uma tarefa
+## Create a Task
 
-### Requisição
+### Request
 
 ```http
 POST /tasks
@@ -128,25 +128,25 @@ Content-Type: application/json
 
 ```json
 {
-  "title": "Estudar Flask",
-  "description": "Praticar a criação de rotas",
+  "title": "Study Flask",
+  "description": "Practice creating API routes",
   "completed": false
 }
 ```
 
-Exemplo utilizando `curl`:
+Example using `curl`:
 
 ```bash
 curl -X POST http://127.0.0.1:5000/tasks \
   -H "Content-Type: application/json" \
   -d '{
-    "title": "Estudar Flask",
-    "description": "Praticar a criação de rotas",
+    "title": "Study Flask",
+    "description": "Practice creating API routes",
     "completed": false
   }'
 ```
 
-### Resposta
+### Response
 
 ```json
 {
@@ -155,29 +155,29 @@ curl -X POST http://127.0.0.1:5000/tasks \
 }
 ```
 
-## Listar todas as tarefas
+## List All Tasks
 
-### Requisição
+### Request
 
 ```http
 GET /tasks
 ```
 
-Exemplo utilizando `curl`:
+Example using `curl`:
 
 ```bash
 curl http://127.0.0.1:5000/tasks
 ```
 
-### Resposta
+### Response
 
 ```json
 {
   "tasks": [
     {
       "id": 1,
-      "title": "Estudar Flask",
-      "description": "Praticar a criação de rotas",
+      "title": "Study Flask",
+      "description": "Practice creating API routes",
       "completed": false
     }
   ],
@@ -185,7 +185,7 @@ curl http://127.0.0.1:5000/tasks
 }
 ```
 
-Quando não existem tarefas cadastradas:
+When no tasks have been created:
 
 ```json
 {
@@ -194,40 +194,40 @@ Quando não existem tarefas cadastradas:
 }
 ```
 
-## Buscar uma tarefa pelo ID
+## Find a Task by ID
 
-### Requisição
+### Request
 
 ```http
 GET /tasks/1
 ```
 
-Exemplo utilizando `curl`:
+Example using `curl`:
 
 ```bash
 curl http://127.0.0.1:5000/tasks/1
 ```
 
-### Resposta de sucesso
+### Successful Response
 
 ```json
 {
   "id": 1,
-  "title": "Estudar Flask",
-  "description": "Praticar a criação de rotas",
+  "title": "Study Flask",
+  "description": "Practice creating API routes",
   "completed": false
 }
 ```
 
-### Tarefa não encontrada
+### Task Not Found
 
-Status HTTP:
+HTTP status:
 
 ```text
 404 Not Found
 ```
 
-Resposta:
+Response:
 
 ```json
 {
@@ -235,11 +235,11 @@ Resposta:
 }
 ```
 
-## Atualizar uma tarefa
+## Update a Task
 
-A atualização exige o envio dos campos `title`, `description` e `completed`.
+The update request requires the `title`, `description`, and `completed` fields.
 
-### Requisição
+### Request
 
 ```http
 PUT /tasks/1
@@ -248,25 +248,25 @@ Content-Type: application/json
 
 ```json
 {
-  "title": "Estudar Flask e APIs",
-  "description": "Praticar operações CRUD",
+  "title": "Study Flask and APIs",
+  "description": "Practice CRUD operations",
   "completed": true
 }
 ```
 
-Exemplo utilizando `curl`:
+Example using `curl`:
 
 ```bash
 curl -X PUT http://127.0.0.1:5000/tasks/1 \
   -H "Content-Type: application/json" \
   -d '{
-    "title": "Estudar Flask e APIs",
-    "description": "Praticar operações CRUD",
+    "title": "Study Flask and APIs",
+    "description": "Practice CRUD operations",
     "completed": true
   }'
 ```
 
-### Resposta de sucesso
+### Successful Response
 
 ```json
 {
@@ -274,15 +274,15 @@ curl -X PUT http://127.0.0.1:5000/tasks/1 \
 }
 ```
 
-### Tarefa não encontrada
+### Task Not Found
 
-Status HTTP:
+HTTP status:
 
 ```text
 404 Not Found
 ```
 
-Resposta:
+Response:
 
 ```json
 {
@@ -290,21 +290,21 @@ Resposta:
 }
 ```
 
-## Excluir uma tarefa
+## Delete a Task
 
-### Requisição
+### Request
 
 ```http
 DELETE /tasks/1
 ```
 
-Exemplo utilizando `curl`:
+Example using `curl`:
 
 ```bash
 curl -X DELETE http://127.0.0.1:5000/tasks/1
 ```
 
-### Resposta de sucesso
+### Successful Response
 
 ```json
 {
@@ -312,15 +312,15 @@ curl -X DELETE http://127.0.0.1:5000/tasks/1
 }
 ```
 
-### Tarefa não encontrada
+### Task Not Found
 
-Status HTTP:
+HTTP status:
 
 ```text
 404 Not Found
 ```
 
-Resposta:
+Response:
 
 ```json
 {
@@ -328,34 +328,34 @@ Resposta:
 }
 ```
 
-## Armazenamento dos dados
+## Data Storage
 
-Atualmente, as tarefas são armazenadas em uma lista em memória:
+Tasks are currently stored in an in-memory list:
 
 ```python
 task_list = []
 ```
 
-Isso significa que todos os dados cadastrados são apagados quando a aplicação é encerrada ou reiniciada.
+This means that all registered tasks are deleted whenever the application is stopped or restarted.
 
-## Possíveis melhorias
+## Future Improvements
 
-Algumas funcionalidades que podem ser adicionadas futuramente:
+Possible improvements for the project include:
 
-* Persistência de dados com SQLite ou PostgreSQL;
-* Integração com Flask-SQLAlchemy;
-* Validação dos dados recebidos;
-* Tratamento para requisições sem JSON;
-* Retorno do status `201 Created` na criação de tarefas;
-* Atualização parcial de tarefas com `PATCH`;
-* Testes automatizados com Pytest;
-* Documentação com Swagger/OpenAPI;
-* Paginação da listagem de tarefas;
-* Autenticação e autorização de usuários;
-* Containerização com Docker.
+* Database persistence with SQLite or PostgreSQL;
+* Flask-SQLAlchemy integration;
+* Request data validation;
+* Error handling for requests without JSON;
+* Return the `201 Created` status when creating tasks;
+* Partial task updates using `PATCH`;
+* Automated tests with Pytest;
+* Swagger/OpenAPI documentation;
+* Task list pagination;
+* User authentication and authorization;
+* Docker support.
 
-## Autor
+## Author
 
-Desenvolvido por [Saulo Sena](https://github.com/saulobdsena).
+Developed by [Saulo Sena](https://github.com/saulobdsena).
 
-Projeto criado para fins de estudo e prática de desenvolvimento de APIs com Flask.
+This project was created for learning and practicing REST API development with Flask.
